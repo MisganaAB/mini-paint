@@ -1,10 +1,3 @@
-"""
-shapes/line.py
-
-A single straight segment between exactly two points.
-
-"""
-
 from OpenGL.GL import *
 from shapes.shape import Shape
 
@@ -15,13 +8,7 @@ class Line(Shape):
         super().__init__(color)
 
     def add_point(self, x, y):
-        """
-        A Line only ever has a start point and an end point.
-        - The first call sets the start point.
-        - Every call after that replaces the end point — so dragging
-          the mouse while drawing just means calling this repeatedly
-          with the current cursor position.
-        """
+        
         if len(self.vertices) < 2:
             self.vertices.append((x, y))
         else:

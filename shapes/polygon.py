@@ -14,9 +14,6 @@ class Polygon(Shape):
             self.vertices.append((x, y))
 
     def close_polygon(self):
-        """Seals the shape. Needs at least 3 points to actually be a
-        polygon — quietly does nothing otherwise so a stray Enter key
-        press can't leave the shape in a broken half-closed state."""
         if len(self.vertices) >= 3:
             self.closed = True
 

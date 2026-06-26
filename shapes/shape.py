@@ -33,17 +33,7 @@ class Shape:
         return (cx, cy)
 
     def apply_transform(self, matrix):
-        """
-        Apply a 3x3 homogeneous transform matrix to every vertex.
-
-        matrix is expected as a 3x3 row-major structure:
-            [[m00, m01, m02],
-             [m10, m11, m12],
-             [m20, m21, m22]]
-
-        We only need the top two rows since we're working in 2D
-        homogeneous coordinates (x, y, 1).
-        """
+        
         new_vertices = []
         for (x, y) in self.vertices:
             new_x = matrix[0][0] * x + matrix[0][1] * y + matrix[0][2]
@@ -60,11 +50,7 @@ class Shape:
 
     @staticmethod
     def _distance_point_to_segment(px, py, ax, ay, bx, by):
-        """
-        Shared helper for hit-testing: shortest distance from point P
-        to the line segment AB. Used by Line and Polyline so the math
-        only lives in one place.
-        """
+        
         abx, aby = bx - ax, by - ay
         apx, apy = px - ax, py - ay
         ab_len_sq = abx * abx + aby * aby

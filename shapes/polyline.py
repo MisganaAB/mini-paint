@@ -21,8 +21,6 @@ class Polyline(Shape):
         glEnd()
 
     def contains_point(self, x, y, tolerance=6.0):
-        """Checks every segment in the chain, not just the first one —
-        clicking anywhere along the polyline should select it."""
         if len(self.vertices) < 2:
             return False
         for i in range(len(self.vertices) - 1):
