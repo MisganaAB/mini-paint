@@ -1,0 +1,14 @@
+class ShapeManager:
+    def __init__(self):
+        # Stores all shapes using their ID as the key
+        self.shapes = {}
+
+        # Used to give each new shape a unique ID
+        self.next_id = 1
+    def add_shape(self, shape):
+        #Add a new shape to the manager and assign it a unique ID.
+        shape.id = self.next_id
+        self.shapes[self.next_id] = shape
+        self.next_id += 1
+
+        return shape.id
