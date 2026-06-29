@@ -1,4 +1,5 @@
 from OpenGL.GL import *
+from transformations.matrix import multiply_point
 
 
 class Shape:
@@ -34,12 +35,15 @@ class Shape:
 
     def apply_transform(self, matrix):
         
-        new_vertices = []
-        for (x, y) in self.vertices:
-            new_x = matrix[0][0] * x + matrix[0][1] * y + matrix[0][2]
-            new_y = matrix[1][0] * x + matrix[1][1] * y + matrix[1][2]
-            new_vertices.append((new_x, new_y))
-        self.vertices = new_vertices
+        # new_vertices = []
+        # for (x, y) in self.vertices:
+        #     new_x = matrix[0][0] * x + matrix[0][1] * y + matrix[0][2]
+        #     new_y = matrix[1][0] * x + matrix[1][1] * y + matrix[1][2]
+        #     new_vertices.append((new_x, new_y))
+        # self.vertices = new_vertices
+        self.vertices = [multiply_point(matrix, vertex)
+            for vertex in self.vertices
+        ]
 
     def _set_draw_color(self):
         """Selected shapes get a visual highlight automatically."""
