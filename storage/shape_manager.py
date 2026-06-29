@@ -23,3 +23,11 @@ class ShapeManager:
     def get_shape(self, shape_id):
         # Return none if shape don't exist
         return self.shapes.get(shape_id)
+    def get_all_shapes(self):
+        # Return every stored shape.
+        return list(self.shapes.values())
+
+    def draw_all(self):
+        # Ask every shape to draw itself.
+        for shape in self.shapes.values():
+            shape.draw()
