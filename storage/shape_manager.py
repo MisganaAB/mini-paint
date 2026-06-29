@@ -31,3 +31,10 @@ class ShapeManager:
         # Ask every shape to draw itself.
         for shape in self.shapes.values():
             shape.draw()
+    def get_selected_shape(self):
+        # Return the currently selected shape. If nothing is selected, return None.
+        for shape in self.shapes.values():
+            if shape.selected:
+                return shape
+
+        return None
