@@ -35,3 +35,31 @@ def multiply_point(matrix: Matrix3x3, point: Point2D) -> Point2D:
     w_h = matrix[2][0] * x + matrix[2][1] * y + matrix[2][2] * 1.0
 
     return (x_h / w_h, y_h / w_h)
+
+
+def translation_matrix(tx: float, ty: float) -> Matrix3x3:
+    return [
+        [1.0, 0.0, tx],
+        [0.0, 1.0, ty],
+        [0.0, 0.0, 1.0],
+    ]
+
+def rotation_matrix(angle: float) -> Matrix3x3:
+    theta = math.radians(angle)
+ 
+    cos_t = math.cos(theta)
+    sin_t = math.sin(theta)
+ 
+    return [
+        [cos_t, -sin_t, 0.0],
+        [sin_t,  cos_t, 0.0],
+        [0.0,    0.0,   1.0],
+    ]
+
+def scaling_matrix(sx: float, sy: float) -> Matrix3x3:
+    return [
+        [sx,  0.0, 0.0],
+        [0.0, sy,  0.0],
+        [0.0, 0.0, 1.0],
+    ]
+
